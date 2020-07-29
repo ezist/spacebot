@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const request = require('request');
 
 const client = new Discord.Client();
-const token = 'NzM3NDI0MjI1MTExMTEzODEw.Xx9J0w.ma8NBLc6XlJGZIiiFLPAyIVFqC8';
+const token = '<insert token here>';
 const usersInProgress = {};
 
 // https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
