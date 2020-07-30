@@ -3,7 +3,9 @@ const request = require('request');
 
 const client = new Discord.Client();
 const token = '<insert token here>';
-const verificationChannel = '<insert verification channel here>';
+const guild = '<insert guild id here>';
+const verificationChannel = '<insert verification channel id here>';
+const verifiedRole = '<insert verified role id here>';
 const usersInProgress = {};
 
 // https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
@@ -37,8 +39,8 @@ client.on('message', async message => {
 		}, async (err, response, body) => {
 			if (!err && response.statusCode === 200) {
 				if (body.status === usersInProgress[message.author.id]) {
-					var member = await client.guilds.resolve('737088245065711676').members.fetch(message.author.id);
-					member.roles.add('737429562668875896');
+					var member = await client.guilds.resolve(guild).members.fetch(message.author.id);
+					member.roles.add(verifiedRole);
 					delete usersInProgress[message.author.id];
 					message.channel.send('Verification successful!');
 				} else {
