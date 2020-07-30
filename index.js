@@ -3,6 +3,7 @@ const request = require('request');
 
 const client = new Discord.Client();
 const token = '<insert token here>';
+const verificationChannel = '<insert verification channel here>';
 const usersInProgress = {};
 
 // https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
@@ -17,7 +18,7 @@ function makeid(length) {
 }
 
 client.on('message', async message => {
-	if (message.channel.id === '737429417969713163' && message.content == '>verify') {
+	if (message.channel.id === verificationChannel && message.content == '>verify') {
 		var id = makeid(7);
 		message.author.send(
 			'To verify, go to your spacemy profile (https://spacemy.xyz/manage.php) and set your status to: ' + id +
